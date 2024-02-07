@@ -1,4 +1,4 @@
-# Project Title
+# Symbol Flipping Algorithm for LDPC code over $GF(4)$
 Experimenting Symbol Flipping Algorithm for LDPC code over $GF(4)$ field elements
 - separate scripts are created for now to check whether each functionality is working or not
 - while scaling up the field size and generalizing the algorithms, combining the separate scripts might help 
