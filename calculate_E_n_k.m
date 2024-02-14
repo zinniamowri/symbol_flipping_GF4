@@ -6,7 +6,7 @@ end
 
 
 function E_n_k = calculate_E_n_k(s, L_n_a, H, rec_codeword, alpha, Imax)
-    % Number of symbols
+    
     N = length(rec_codeword);
     % Number of non-zero GF(q) elements (assuming GF(q) = GF(4) in this example)
     q = 4 - 1;
@@ -26,9 +26,9 @@ function E_n_k = calculate_E_n_k(s, L_n_a, H, rec_codeword, alpha, Imax)
     % Calculate the metric E_n_a for each symbol n and each GF(q) element a
     for k = 1:Imax
         for n = 1:N
-            E_n_a = zeros(1, q); % Temporary variable for the current symbol
+            E_n_a = zeros(1, q); 
             for a = 1:q
-                % Initialize the sum for the current n and a
+               
                 sum_E = 0;
                 for m = M_n{n}' % Transpose to ensure a column vector for iteration
                     % Find the symbols involved in the current check m
@@ -51,22 +51,18 @@ end
 s = [0, 1];  % Syndrome vector for the current iteration , need to replace with a funciton
 L_n_a = [2, 2, 3; 2, 2, 3; 2, 2, 3];  % LLR values for each symbol and each GF(q) element, need to replace with a funciton
 H = [1 0 1; 0 1 1];  % Parity-check matrix
-rec_codeword = [2, 2, 3];  % Received symbol vector
+rec_codeword = [2, 2, 3];  % Received vector
 alpha = 0.5;  % Weighting factor
 Imax = 5;
 
-
 E_n_k = calculate_E_n_k(s, L_n_a, H, rec_codeword, alpha, Imax);
-
 
 disp('E_n_k:');
 disp(E_n_k);
 
-
 [E_max, symbol_to_flip] = max(E_n_k);
 
-% Display the index of the symbol to flip
-disp('Symbol to flip');
+disp('index of the symbol to flip');
 disp(symbol_to_flip);
 
 
